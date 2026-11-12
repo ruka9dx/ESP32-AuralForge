@@ -91,7 +91,9 @@ void updateTopLine(bool bluetooth_connected) {
   }
 
   const char *text;
-  if (!bluetooth_connected)
+  if (multiEffect.isMultiMode())
+    text = "MULTI EFFECT ON";
+  else if (!bluetooth_connected)
     text = "Waiting BT...";
   else if (!title_valid)
     text = "BT Connected";

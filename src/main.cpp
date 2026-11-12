@@ -240,7 +240,6 @@ void loop() {
   BtnEvent fxPrev = updateButton(btnFxPrev, true);
   bool bothFxButtonsPressed =
       btnFxNext.stable == LOW && btnFxPrev.stable == LOW;
-  uint32_t now = millis();
 
   if (bothFxButtonsPressed && !effect_combo_handled &&
       now - btnFxNext.pressed_at >= LONG_PRESS_MS &&

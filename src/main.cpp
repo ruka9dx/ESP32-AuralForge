@@ -103,7 +103,9 @@ void changeEffect(int dir) {
 }
 
 void changeVolume(int delta) {
-  int v = a2dp_sink.get_volume() + delta;
+  int current_volume =
+      volume_restore_complete ? a2dp_sink.get_volume() : saved_volume;
+  int v = current_volume + delta;
   if (v < 0) v = 0;
   if (v > 127) v = 127;
   a2dp_sink.set_volume((uint8_t)v);
